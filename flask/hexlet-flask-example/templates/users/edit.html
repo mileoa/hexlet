@@ -1,0 +1,25 @@
+{% extends "users/layout.html" %}
+
+{% block content %}
+<form action="{{ url_for('users_patch', id=user.id) }}" method="post">
+    <div>
+        <label for="user-nickname">
+            Имя:
+            <input type="text" id="user-name" name="name" value="{{ user.name }}">
+        </label>
+        {% if errors['name'] %}
+        <div>{{ errors['name'] }}</div>
+        {% endif %}
+        </div>
+        <div>
+        <label for="user-email">
+            Email:
+            <input type="text" id="user-email" name="email" value="{{ user.email }}">
+        </label>
+        {% if errors['email'] %}
+        <div>{{ errors['email'] }}</div>
+        {% endif %}
+    </div>
+    <input type="submit" value="Update">
+</form>
+{% endblock %}
