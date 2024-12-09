@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from hexlet_django_blog.articles.apps import ArticleConfig
+from hexlet_django_blog.articles.models import Article
+from django.views import View
 
 
-def index(request, tags, article_id):
-    return render(
-        request,
-        "articles/index.html",
-        context={"name": ArticleConfig.name, "article": {"tags": tags, "article_id": article_id}},
-    )
+class IndexView(View):
+
+    def get(self, request, *args, **kwargs):
+        articles = Article.objects.all()[:15]
+        return render(
+            request,
+            "articles/index.html",
+            context={
+                "articles": articles,
+            },
+        )

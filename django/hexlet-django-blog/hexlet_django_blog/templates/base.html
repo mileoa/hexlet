@@ -6,10 +6,7 @@
 <body>
 <div id="sidebar">
     {% block sidebar %}
-        <ul>
-            <li><a href="/">Главная</a></li>
-            <li><a href="/articles/">Статьи</a></li>
-        </ul>
+        {% include 'common_sidebar.html' %}
     {% endblock %}
 </div>
 <div id="content">
