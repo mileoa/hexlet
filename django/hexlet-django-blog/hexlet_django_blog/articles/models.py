@@ -10,3 +10,7 @@ class Article(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ArticleComment(models.Model):
+    content = models.CharField("content", max_length=100)

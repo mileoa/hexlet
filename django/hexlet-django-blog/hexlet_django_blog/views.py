@@ -7,7 +7,7 @@ from django.urls import reverse
 class Index(View):
 
     def get(self, request, *args, **kwargs):
-        return redirect(reverse("article"))
+        return redirect(reverse("articles"))
 
 
 def about(request):
